@@ -1,0 +1,102 @@
+/*
+ * SPDX-License-Identifier: MIT
+ */
+
+/dts-v1/;
+#include <nordic/nrf52840_qiaa.dtsi>
+#include "patkb_pcb-pinctrl.dtsi"
+
+/ {
+    model = "patkb pcb";
+    compatible = "patkb,pcb";
+
+    chosen {
+        zephyr,code-partition = &code_partition;
+        zephyr,sram = &sram0;
+        zephyr,flash = &flash0;
+        zephyr,display = &lcd;
+    };
+};
+
+&adc {
+    status = "okay";
+};
+
+&gpiote {
+    status = "okay";
+};
+
+&gpio0 {
+    status = "okay";
+};
+
+&gpio1 {
+    status = "okay";
+};
+
+/* MAX17048 fuel gauge, battery reporting is skipped for now so the bus stays disabled */
+&i2c0 {
+    compatible = "nordic,nrf-twi";
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default", "sleep";
+};
+
+/* Sharp memory LCD LS013B7DH03 (128x128, monochrome) */
+&spi1 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
+    pinctrl-names = "default", "sleep";
+    /* LCD_SCS (P1.04), the chip select of the Sharp LCD is active high */
+    cs-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+
+    lcd: ls0xx@0 {
+        compatible = "sharp,ls0xx";
+        spi-max-frequency = <1000000>;
+        reg = <0>;
+        width = <128>;
+        height = <128>;
+        /* LCD_DISP (P1.07) */
+        disp-en-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
+        /* LCD_EXTCOMIN (P1.06) */
+        extcomin-gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
+        extcomin-frequency = <60>;
+    };
+};
+
+zephyr_udc0: &usbd {
+    status = "okay";
+};
+
+&flash0 {
+    /*
+     * Layout of the Adafruit nRF52 bootloader with SoftDevice s140 6.1.1,
+     * the same as the nice!nano.
+     */
+    partitions {
+        compatible = "fixed-partitions";
+        #address-cells = <1>;
+        #size-cells = <1>;
+
+        sd_partition: partition@0 {
+            reg = <0x00000000 0x00026000>;
+        };
+        code_partition: partition@26000 {
+            reg = <0x00026000 0x000c6000>;
+        };
+
+        /*
+         * The flash starting at 0x000ec000 and ending at
+         * 0x000f3fff is reserved for use by the application.
+         */
+        storage_partition: partition@ec000 {
+            reg = <0x000ec000 0x00008000>;
+        };
+
+        boot_partition: partition@f4000 {
+            reg = <0x000f4000 0x0000c000>;
+        };
+    };
+};

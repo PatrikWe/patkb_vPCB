@@ -45,6 +45,8 @@ layers:
   - RALT
   - ß
   - DEL
+  - MUTE
+  - MUTE
   first layer:
   - AT
   - DQT
@@ -90,6 +92,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   second layer:
   - VOL UP
   - PSCRN
@@ -115,6 +119,8 @@ layers:
   - CUT
   - COPY
   - PASTE
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -177,6 +183,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '0'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}

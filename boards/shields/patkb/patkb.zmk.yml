@@ -3,7 +3,6 @@ id: patkb
 name: patkb
 type: shield
 #url: https://github.com/josefadamcik/SofleKeyboard
-requires: [pro_micro]
 exposes: []
 features:
   - keys

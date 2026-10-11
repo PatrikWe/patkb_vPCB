@@ -1,0 +1,7 @@
+# patkb custom nRF52840 PCB
+
+# SPDX-License-Identifier: MIT
+
+config BOARD_PATKB_PCB
+    bool "patkb pcb"
+    depends on SOC_NRF52840_QIAA

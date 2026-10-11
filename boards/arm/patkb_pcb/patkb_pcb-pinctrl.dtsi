@@ -1,0 +1,37 @@
+/*
+ * SPDX-License-Identifier: MIT
+ */
+
+&pinctrl {
+    /* MAX17048 fuel gauge (address 0x36), not used by the firmware yet */
+    i2c0_default: i2c0_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 12)>,
+                <NRF_PSEL(TWIM_SCL, 1, 9)>;
+        };
+    };
+
+    i2c0_sleep: i2c0_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 12)>,
+                <NRF_PSEL(TWIM_SCL, 1, 9)>;
+            low-power-enable;
+        };
+    };
+
+    /* Sharp LS013B7DH03: LCD_SCLK = P1.01, LCD_SI = P1.02 (write only) */
+    spi1_default: spi1_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 1, 1)>,
+                <NRF_PSEL(SPIM_MOSI, 1, 2)>;
+        };
+    };
+
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 1, 1)>,
+                <NRF_PSEL(SPIM_MOSI, 1, 2)>;
+            low-power-enable;
+        };
+    };
+};

@@ -7,6 +7,7 @@ on:
       - "boards/shields/patkb/*.keymap"
       - "boards/shields/patkb/*.dtsi"
       - "keymap_drawer.config.yaml"
+      - "keymap-drawer/patkb_layout.json"
 
 jobs:
   draw:
@@ -17,4 +18,4 @@ jobs:
       keymap_patterns: "boards/shields/patkb/*.keymap"
       config_path: "keymap_drawer.config.yaml"
       output_folder: "keymap-drawer"
-      draw_args: '-n "444442vv 2vv44444"'
+      draw_args: '-j keymap-drawer/patkb_layout.json -l LAYOUT'

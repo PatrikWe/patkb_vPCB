@@ -1,0 +1,14 @@
+identifier: patkb_pcb
+name: patkb pcb
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - usb_device
+  - ble
+  - ieee802154
+  - pwm
+  - watchdog

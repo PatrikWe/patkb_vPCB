@@ -1,0 +1,2 @@
+# local bootloader build/flash tooling (own git clone + venv)
+flash_the_keyboard/

@@ -50,7 +50,10 @@
 &lt FIRST A  &lt NUMS S   &mt LSHFT D  &kp F     &kp G                                &kp H     &kp J        &mt RSHFT K  &lt SECOND L &lt FIRST DE_O_UMLAUT 
 &kp DE_Y     &kp DE_X     &kp C        &kp V     &kp B      &kp C_MUTE     &kp C_PP   &kp N     &kp M        &kp COMMA    &kp DOT      &kp DE_MINUS
 &kp ESC      &kp TAB      &kp LGUI     &kp LALT  &kp SPACE  &kp LCTRL      &kp BSPC   &kp RET   &mo SECOND   &kp RALT     &kp DE_SZ    &kp DEL
-             >;
+ // encoder push buttons (left, right)
+&kp C_MUTE  &kp C_MUTE
+            >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         first_layer {
@@ -65,7 +68,10 @@
 &kp DE_A_UMLAUT  &kp DE_EXCL    &kp DE_HASH   &kp DE_DLLR  &kp DE_PRCNT                           &kp DE_SLASH  &kp DE_LPAR      &kp DE_LBKT  &kp DE_LBRC     &kp DE_LT
 &kp DE_EQUAL     &kp DE_MINUS   &kp DE_PLUS   &kp DE_STAR  &kp DE_AMPS   &kp DE_GRAVE   &trans    &kp DE_BSLH   &kp DE_RPAR      &kp DE_RBKT  &kp DE_RBRC     &kp DE_GT
 &trans           &trans         &trans        &trans       &trans        &trans         &trans    &trans        &trans           &trans       &trans          &trans
+// encoder push buttons (left, right)
+&trans  &trans
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         second_layer {
@@ -80,7 +86,10 @@
 &kp C_VOL_DN  &kp LCTRL    &kp LSHFT    &trans       &kp CLCK                      &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &kp DEL
 &trans        &kp K_CUT    &kp K_COPY   &kp K_PASTE  &trans     &trans    &trans   &trans    &trans    &trans   &trans    &trans 
 &trans        &trans       &trans       &trans       &trans     &trans    &trans   &trans    &trans    &trans    &trans    &trans
+// encoder push buttons (left, right)
+&trans  &trans
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         num_layer {
@@ -95,7 +104,10 @@
 &trans   &trans  &trans  &trans  &trans                    &kp PG_DN &kp DE_N4       &kp DE_N5       &kp DE_N6       &trans
 &trans   &trans  &trans  &trans  &trans  &trans    &trans  &trans    &kp DE_N1       &kp DE_N2       &kp DE_N3       &trans
 &trans   &trans  &trans  &trans  &trans  &trans    &trans  &trans    &kp DE_N0       &trans          &trans          &trans 
+// encoder push buttons (left, right)
+&trans  &trans
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
